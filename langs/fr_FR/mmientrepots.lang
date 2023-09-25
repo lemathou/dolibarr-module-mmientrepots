@@ -28,10 +28,9 @@ ModuleMMIEntrepotsDesc = Emplacements de stock produit, etc.
 MMIEntrepotsSetup = MMIEntrepots setup
 Settings = Settings
 MMIEntrepotsSetupPage = MMIEntrepots setup page
-MMIENTREPOTS_MYPARAM1 = My param 1
-MMIENTREPOTS_MYPARAM1Tooltip = My param 1 tooltip
-MMIENTREPOTS_MYPARAM2=My param 2
-MMIENTREPOTS_MYPARAM2Tooltip=My param 2 tooltip
+SHIPPING_PDF_LOCATION = Afficher l'emplacement dans le dépôt sur le PDF d'expédition
+SHIPPING_PDF_LOCATIONTooltip = My param 1 tooltip
+
 
 
 #

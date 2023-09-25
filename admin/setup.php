@@ -27,6 +27,7 @@ require_once '../env.inc.php';
 require_once "../main_load.inc.php";
 
 $arrayofparameters = array(
+	'SHIPPING_PDF_LOCATION'=>array('type'=>'yesno', 'enabled'=>1),
 );
 
 require_once('../../mmicommon/admin/mmisetup_1.inc.php');
