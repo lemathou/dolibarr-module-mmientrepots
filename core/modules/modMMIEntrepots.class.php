@@ -69,10 +69,10 @@ class modMMIEntrepots extends DolibarrModules
 
 		// Author
 		$this->editor_name = 'Mathieu Moulin iProspective';
-		$this->editor_url = 'https://www.iprospective.fr';
+		$this->editor_url = 'https://iprospective.fr';
 
 		// Possible values for version are: 'development', 'experimental', 'dolibarr', 'dolibarr_deprecated' or a version string like 'x.y.z'
-		$this->version = '1.0';
+		$this->version = '1.1';
 		// Url to the file with your last numberversion of this module
 		//$this->url_last_version = 'http://www.example.com/versionmodule.txt';
 
@@ -136,7 +136,7 @@ class modMMIEntrepots extends DolibarrModules
 		// A condition to hide module
 		$this->hidden = false;
 		// List of module class names as string that must be enabled if this module is enabled. Example: array('always1'=>'modModuleToEnable1','always2'=>'modModuleToEnable2', 'FR1'=>'modModuleToEnableFR'...)
-		$this->depends = array('modMMICommon');
+		$this->depends = array('modMMICommon', 'modCategorie');
 		$this->requiredby = array(); // List of module class names as string to disable if this one is disabled. Example: array('modModuleToDisable1', ...)
 		$this->conflictwith = array(); // List of module class names as string this module is in conflict with. Example: array('modModuleToDisable1', ...)
 
@@ -144,7 +144,7 @@ class modMMIEntrepots extends DolibarrModules
 		$this->langfiles = array("mmientrepots@mmientrepots");
 
 		// Prerequisites
-		$this->phpmin = array(5, 6); // Minimum version of PHP required by module
+		$this->phpmin = array(7, 2); // Minimum version of PHP required by module
 		$this->need_dolibarr_version = array(11, -3); // Minimum version of Dolibarr required by module
 
 		// Messages at activation
@@ -418,7 +418,12 @@ class modMMIEntrepots extends DolibarrModules
 		// Create extrafields during init
 		include_once DOL_DOCUMENT_ROOT.'/core/class/extrafields.class.php';
 		$extrafields = new ExtraFields($this->db);
+
+		// Product
 		$extrafields->addExtraField('fk_entrepot_loc', $langs->trans('Extrafield_fk_entrepot_loc'), 'sellist', 100, '', 'product', 0, 0, '', "a:1:{s:7:\"options\";a:1:{s:28:\"c_entrepot_loc:label:rowid::\";N;}}", 1, '', -1, $langs->trans('ExtrafieldToolTip_fk_entrepot_loc'), '', $conf->entity, 'mmientrepots@mmientrepots', '$conf->mmientrepots->enabled');
+
+		// Category
+        $extrafields->addExtraField('fk_entrepot_loc', $langs->trans('Extrafield_fk_entrepot_loc'), 'sellist', 100, '', 'categorie', 0, 0, '', "a:1:{s:7:\"options\";a:1:{s:28:\"c_entrepot_loc:label:rowid::\";N;}}", 1, '', 5, $langs->trans('ExtrafieldToolTip_fk_entrepot_loc'), '', $conf->entity, 'mmientrepots@mmientrepots', '$conf->mmientrepots->enabled');
 
 		// Permissions
 		$this->remove($options);
